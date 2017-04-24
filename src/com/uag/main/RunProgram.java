@@ -19,6 +19,11 @@ public class RunProgram {
 		hash.addAddressElement(new AddressBookVO("James Bond Cero Cero siete", "", ""));
 		hash.addAddressElement(new AddressBookVO("Arnold el de la pelicula", "", ""));
 		hash.addAddressElement(new AddressBookVO("Paquita la del Barrio", "", ""));
+		hash.addAddressElement(new AddressBookVO("Paquita la del Barrio", "", ""));
+		hash.addAddressElement(new AddressBookVO("Paquita la del Barrio", "", ""));
+		hash.addAddressElement(new AddressBookVO("Paquita la del Barrio", "", ""));
+		hash.addAddressElement(new AddressBookVO("Paquita la del Barrio", "", ""));
+		hash.addAddressElement(new AddressBookVO("Paquita la del Barrio", "", ""));
 		hash.addAddressElement(new AddressBookVO("Marimar de la Plaza", "", ""));
 		hash.addAddressElement(new AddressBookVO("Juan de las Pitayas", "", ""));
 		hash.addAddressElement(new AddressBookVO("El Señor Mofles", "", ""));
@@ -36,6 +41,12 @@ public class RunProgram {
 		// Print the HashTable
 		hash.getUtils().printHashTable();
 		
+		// Balance the results
+		hash.getUtils().balanceHashTree();
+		System.out.println("\n--------------- After balance tree for each hash index  \n");
+		hash.getUtils().printHashTable();
+		
+		// --------------------------------------------------------------------------------------
 		// Find a element
 		Utils findElement = hash.getUtils().findElementByName("Victoria Soriano");
 		if(findElement.foundElement()){
@@ -48,14 +59,17 @@ public class RunProgram {
 			System.err.println("The element was not found on the HashTable");
 		}
 	
+		// --------------------------------------------------------------------------------------
 		// Delete a Element
 		hash.getUtils().deleteElementByName("Don Tachas");
 		System.out.println("\n------------------ afert deleting the element: \n");
 		hash.getUtils().printHashTable();
-//
-//		hash.getUtils().deleteElementByName("Predito fernandez");
-//		System.out.println("------------------ afert deleting the element: \n");
-//		hash.getUtils().printHashTable();
+
+		hash.getUtils().deleteElementByName("Predito fernandez");
+		System.out.println("------------------ afert deleting the element: \n");
+		hash.getUtils().printHashTable();
+		
+		// --------------------------------------------------------------------------------------
 		
 	}
 }

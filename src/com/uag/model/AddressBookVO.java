@@ -1,6 +1,6 @@
 package com.uag.model;
 
-public class AddressBookVO {
+public class AddressBookVO implements Comparable<AddressBookVO> {
 	
 	private String name;
 	private String address;
@@ -50,12 +50,12 @@ public class AddressBookVO {
 	
 	@Override
 	public int hashCode() {
-		final int prime = 31;
+		final int prime = 4;
 		int result = 1;
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
-		return result;
+		return (result < 0) ? (result = result *-1) : result;
 	}
 	
 	@Override
@@ -92,5 +92,13 @@ public class AddressBookVO {
 			return false;
 		}
 		return true;
-	}	
+	}
+
+	// Overwrite the funtion to sort the elements
+	@Override
+	public int compareTo(AddressBookVO o) {
+		int compare = o.hashCode();
+		return this.hashCode() - compare;  // Lower to Higher.
+		// return compare - this.hashCode();  // Higher to Lower.
+	}
 }

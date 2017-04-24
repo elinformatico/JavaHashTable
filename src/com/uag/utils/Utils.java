@@ -1,6 +1,7 @@
 package com.uag.utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import com.uag.model.AddressBookVO;
 import com.uag.model.StackTable;
@@ -23,7 +24,7 @@ public class Utils {
 		{
 			ArrayList<AddressBookVO> elementsStack = this.stackTable[stack].getStackAddresBookObject();
 			for(AddressBookVO element : elementsStack){
-				System.out.println("Position [" + stack + "] element: " + element.getName());
+				System.out.println("Position [" + stack + "] element: " + element.getName() + ", ID: " + element.hashCode());
 			}
 			
 		} else {
@@ -58,6 +59,10 @@ public class Utils {
 	
 	public Utils findElementByName(String name)
 	{
+		this.foundElement = false;
+		this.hashPosition = -1;
+		this.indexPosition = -1;
+		
 		for(StackTable stack : this.stackTable)
 		{		
 			for(AddressBookVO address : stack.getStackAddresBookObject())
@@ -69,7 +74,8 @@ public class Utils {
 					break;
 				}
 			}
-			
+			if(foundElement)
+				break;
 		}
 		
 		if(foundElement){
@@ -90,4 +96,12 @@ public class Utils {
 		return false;
 	}
 	
+	public void balanceHashTree()
+	{
+		for(int i=0; i < stackTable.length; i++)
+		{
+			ArrayList<AddressBookVO> elementHash = stackTable[i].getStackAddresBookObject();
+			Collections.sort(elementHash);	
+		}
+	}
 }

@@ -29,11 +29,17 @@ public class HashTable {
 	
 	public void addAddressElement(AddressBookVO element)
 	{
-		int hashKey = calculateHashValue(element.getName());
-	
-		//System.out.println("The hashKey[" + hashKey + "]: " + element.getName());
-		element.setHashValue(hashKey);
-		this.stackTable[hashKey].addElement(element);
+		// Check if the name not exits in the HashTable
+		if(!getUtils().findElementByName(element.getName()).foundElement())
+		{
+			int hashKey = calculateHashValue(element.getName());
+			
+			//System.out.println("The hashKey[" + hashKey + "]: " + element.getName());
+			element.setHashValue(hashKey);
+			this.stackTable[hashKey].addElement(element);
+		} else {
+			//System.err.println("The element [" + element.getName() + "] cannot be added because exists other element with the same name");
+		}	
 	}
 
 	/*

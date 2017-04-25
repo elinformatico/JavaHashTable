@@ -24,7 +24,8 @@ public class Utils {
 		{
 			ArrayList<AddressBookVO> elementsStack = this.stackTable[stack].getStackAddresBookObject();
 			for(AddressBookVO element : elementsStack){
-				System.out.println("Position [" + stack + "] element: " + element.getName() + ", ID: " + element.hashCode());
+				// System.out.println("Position [" + stack + "] element: " + element.getName() + ", ID: " + element.hashCode());
+				System.out.println("Position [" + stack + "] element: " + element.getName());
 			}
 			
 		} else {
